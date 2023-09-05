@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="{{url_for('static', filename='js/index.js')}}"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+</head>
+<body>
+    <div class="contain">
+        <div class="btn-container">
+            <button type="button" id="refresh" onclick="refresh();" style="width:auto;">Refresh</button>
+            <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Create</button>
+        </div>
+        <div class="jokes">
+            <div class="question" id="question"></div>
+            <div class="answer" id="answer"></div>
+        </div>
+    </div>
+    <!-- <div class="form">
+        <form action="{{url_for('insert')}}" method="post">
+            <label for="fquestion">Question:</label>
+            <input type="text" id="fquestion" name="fquestion"><br><br>
+            <label for="fanswer">Answer:</label>
+            <input type="text" id="fanswer" name="fanswer"><br><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div> -->
+
+    <div id="id01" class="modal">
+  
+        <form class="modal-content animate" action="{{url_for('insert')}}" method="post">
+          <div class="imgcontainer">
+            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+            <!-- <img src="img_avatar2.png" alt="Avatar" class="avatar"> -->
+          </div>
+      
+          <div class="container">
+            <label for="fquestion"><b>Question</b></label>
+            <input type="text" placeholder="Enter the Question" name="fquestion" id="fquestion" required>
+      
+            <label for="fanswer"><b>Answer</b></label>
+            <input type="text" placeholder="Enter the Answer" name="fanswer" id="fanswer" required>
+              
+            <button type="submit">Submit</button>
+            
+          </div>
+      
+          <div class="container" style="background-color:#f1f1f1">
+            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+          </div>
+        </form>
+      </div>
+      
+    
+</body>
+</html>

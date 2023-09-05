@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="{{url_for('static', filename='favicon/favicon.ico')}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jokes API</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
+</head>
+<body>
+    <header>
+        <h1>Jokes API</h1>
+        <div class="toggle-theme">
+            <input type="checkbox" id="theme-switch">
+            <label for="theme-switch" class="theme-switch-label"></label>
+        </div>
+    </header>
+    <main>
+        <div class="button-container">
+            <button id="reselect-button">Reselect Joke</button>
+            <button id="create-button">Create Joke</button>
+        </div>
+        <section class="joke-section">
+            <h2 id="joke-title" class="joke-title">Joke Title</h2>
+            <p id="joke-response" class="joke-response">Joke Response</p>
+        </section>
+    </main>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="close-button">&times;</span>
+            <h2>Create a Joke</h2>
+            <form id="joke-form" action="{{url_for('insert')}}" method="post">
+                <label for="joke-question">Question/Title:</label>
+                <input type="text" id="joke-question" name="joke-question" required>
+                <label for="joke-response">Response:</label>
+                <input type="text" id="joke-response" name="joke-response" required>
+                <button type="submit">Create</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="{{url_for('static', filename='js/script.js')}}"></script>
+</body>
+</html>
